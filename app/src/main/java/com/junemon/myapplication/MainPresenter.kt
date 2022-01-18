@@ -1,6 +1,9 @@
 package com.junemon.myapplication
 
 import android.util.Log
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 
 
 /**
@@ -8,7 +11,13 @@ import android.util.Log
  * Github https://github.com/iandamping
  * Indonesia.
  */
-class MainPresenter(private val view: MainView) {
+class MainPresenter @AssistedInject constructor(@Assisted private val view: MainView) {
+
+    @AssistedFactory
+    interface Factory {
+        fun create(mainView: MainView): MainPresenter
+    }
+
     private val TAG = this.javaClass.canonicalName
 
     fun logMe() {

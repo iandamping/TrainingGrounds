@@ -1,8 +1,8 @@
 package com.junemon.myapplication
 
 import android.app.Application
-import com.junemon.myapplication.di.injectModules
-import org.koin.core.context.startKoin
+import com.junemon.myapplication.di.AppComponent
+import com.junemon.myapplication.di.DaggerAppComponent
 
 
 /**
@@ -12,10 +12,15 @@ import org.koin.core.context.startKoin
  */
 class MainApplication : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
-        startKoin {
-            injectModules()
-        }
+
+    val appComponent: AppComponent by lazy {
+        initializeComponent()
+    }
+
+
+    open fun initializeComponent(): AppComponent {
+        // Creates an instance of AppComponent using its Factory constructor
+        // We pass the application that will be used as Context in the graph
+        return DaggerAppComponent.factory().injectApplication(this)
     }
 }
