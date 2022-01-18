@@ -8,10 +8,10 @@ import android.util.Log
  * Github https://github.com/iandamping
  * Indonesia.
  */
-class MainPresenter(private val view: MainView) {
+class MainPresenter(private val mView: MainView) {
     private val TAG = this.javaClass.canonicalName
 
-    fun logMe() {
-        Log.e(TAG, "Hello there")
+    fun logMe(name:String) {
+        mView.logMessage("hello: $name , how are you ?")
     }
 }
