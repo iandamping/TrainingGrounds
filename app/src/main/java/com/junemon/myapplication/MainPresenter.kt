@@ -11,16 +11,14 @@ import dagger.assisted.AssistedInject
  * Github https://github.com/iandamping
  * Indonesia.
  */
-class MainPresenter @AssistedInject constructor(@Assisted private val view: MainView) {
+class MainPresenter @AssistedInject constructor(@Assisted private val mView: MainView) {
 
     @AssistedFactory
     interface Factory {
         fun create(mainView: MainView): MainPresenter
     }
 
-    private val TAG = this.javaClass.canonicalName
-
-    fun logMe() {
-        Log.e(TAG, "Hello there")
+    fun logMe(name:String) {
+        mView.logMessage("hello: $name , how are you ?")
     }
 }
