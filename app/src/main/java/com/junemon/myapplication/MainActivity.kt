@@ -2,8 +2,10 @@ package com.junemon.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(),MainView {
 
     @Inject
@@ -14,7 +16,6 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        inject().getMainActivityComponent().getComponent().injectActivity(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter.logMe()
