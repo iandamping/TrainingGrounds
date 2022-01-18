@@ -7,4 +7,6 @@ package com.junemon.myapplication
  * Indonesia.
  */
 interface MainView {
+
+    fun logMessage(name:String)
 }
