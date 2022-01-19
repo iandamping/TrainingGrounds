@@ -11,9 +11,8 @@ class MainActivity : AppCompatActivity(),MainView {
     private val TAG = this.javaClass.canonicalName
 
 
-    private val presenter: MainPresenter by inject {
-        parametersOf(this)
-    }
+    private val presenter: MainPresenter by inject()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
