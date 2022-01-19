@@ -18,7 +18,7 @@ class MainPresenter @AssistedInject constructor(@Assisted private val mView: Mai
         fun create(mainView: MainView): MainPresenter
     }
 
-    fun logMe(name:String) {
-        mView.logMessage("hello: $name , how are you ?")
+    fun injectingWith(name: String) {
+        mView.logMessage("injected with: $name")
     }
 }

@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(),MainView {
         inject().getMainActivityComponent().getComponent().injectActivity(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        presenter.logMe("Android")
+        presenter.injectingWith("Assisted Injection")
     }
 
     override fun logMessage(name: String) {

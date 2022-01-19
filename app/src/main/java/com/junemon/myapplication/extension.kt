@@ -1,5 +1,6 @@
 package com.junemon.myapplication
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.junemon.myapplication.di.AppComponent
 
@@ -9,4 +10,4 @@ import com.junemon.myapplication.di.AppComponent
  * Github https://github.com/iandamping
  * Indonesia.
  */
-fun FragmentActivity.inject(): AppComponent = (application as MainApplication).appComponent
+fun AppCompatActivity.inject(): AppComponent = (application as MainApplication).appComponent
