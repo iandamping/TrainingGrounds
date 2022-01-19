@@ -10,17 +10,13 @@ class MainActivity : AppCompatActivity(),MainView {
     private val TAG = this.javaClass.canonicalName
 
     @Inject
-    lateinit var factory: MainPresenter.Factory
-
-    private val presenter: MainPresenter by lazy {
-        factory.create(this)
-    }
+    lateinit var presenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        inject().getMainActivityComponent().getComponent().injectActivity(this)
+        inject().getMainActivityComponent().injectView(this).injectActivity(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        presenter.logMe("Android")
+        presenter.injectingWith("@BindsInstance")
     }
 
     override fun logMessage(name: String) {

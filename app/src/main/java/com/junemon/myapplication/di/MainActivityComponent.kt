@@ -1,6 +1,8 @@
 package com.junemon.myapplication.di
 
 import com.junemon.myapplication.MainActivity
+import com.junemon.myapplication.MainView
+import dagger.BindsInstance
 import dagger.Subcomponent
 
 
@@ -16,6 +18,6 @@ interface MainActivityComponent {
 
     @Subcomponent.Factory
     interface Factory {
-        fun getComponent(): MainActivityComponent
+        fun injectView(@BindsInstance mainView: MainView): MainActivityComponent
     }
 }

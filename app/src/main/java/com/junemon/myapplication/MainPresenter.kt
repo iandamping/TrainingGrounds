@@ -1,9 +1,6 @@
 package com.junemon.myapplication
 
-import android.util.Log
-import dagger.assisted.Assisted
-import dagger.assisted.AssistedFactory
-import dagger.assisted.AssistedInject
+import javax.inject.Inject
 
 
 /**
@@ -11,14 +8,9 @@ import dagger.assisted.AssistedInject
  * Github https://github.com/iandamping
  * Indonesia.
  */
-class MainPresenter @AssistedInject constructor(@Assisted private val mView: MainView) {
+class MainPresenter @Inject constructor(private val mView: MainView) {
 
-    @AssistedFactory
-    interface Factory {
-        fun create(mainView: MainView): MainPresenter
-    }
-
-    fun logMe(name:String) {
-        mView.logMessage("hello: $name , how are you ?")
+    fun injectingWith(name: String) {
+        mView.logMessage("injected with: $name")
     }
 }
