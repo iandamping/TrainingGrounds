@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(),MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        presenter.logMe("Android")
+        presenter.logMe("PassingParameters")
     }
 
     override fun logMessage(name: String) {
